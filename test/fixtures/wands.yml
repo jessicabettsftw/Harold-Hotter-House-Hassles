@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character: one
+  wood: MyString
+  length: MyString
+  core: MyString
+
+two:
+  character: two
+  wood: MyString
+  length: MyString
+  core: MyString
