@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+#array of hashes
+# File.open("db/seedFiles/houseData.rb") do |file|
+#   houseData = eval(file.read)
+# end
+
+File.open("db/seedFiles/houseData.rb").each_with_index do |file, index|
+  puts file
+  puts index
+end
+
+
+#array of hashes
+spellData = File.open("db/seedFiles/spellData.rb")
+
+
+#hash with values as array
+wandData = File.open("db/seedFiles/wandData.rb")
+
+
+#hash with values as array
+familiarData = File.open("db/seedFiles/familiarData.rb")

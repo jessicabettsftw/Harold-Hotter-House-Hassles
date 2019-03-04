@@ -1,0 +1,19 @@
+{
+  "type": [
+    "Cat",
+    "Rat",
+    "Toad",
+    "Dog",
+    "Owl",
+    "Hawk",
+    "Snake",
+    "Lizard",
+    "Hedgehog",
+    "Pig",
+    "Rabbit",
+    "Raccoon",
+    "Armadillo",
+    "Wombat",
+    "Bat"
+  ]
+}
