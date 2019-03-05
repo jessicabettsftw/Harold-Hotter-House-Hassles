@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # resource :home, only: [:index, :login], :path => 'anythingelse'
   root 'home#index'
   get '/login', to: 'home#login'
   get '/signup', to: 'characters#new'

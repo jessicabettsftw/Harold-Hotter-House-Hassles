@@ -1,5 +1,5 @@
 {
-  "type": [
+  "Species": [
     "Cat",
     "Rat",
     "Toad",

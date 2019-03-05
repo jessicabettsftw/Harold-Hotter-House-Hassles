@@ -10,7 +10,7 @@ class Character < ApplicationRecord
     File.open("db/seedFiles/familiarData.rb") do |file|
       familiarData = eval(file.read)
     end
-    familiarData[:type]
+    familiarData[:Species]
   end
 
 

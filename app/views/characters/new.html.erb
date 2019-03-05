@@ -1,2 +1,9 @@
-<h1>Character#new</h1>
-<p>Find me in app/views/character/new.html.erb</p>
+<%= form_for @character do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :house_id, "House" %>
+  <%= f.collection_select :house_id, House.all, :id, :name %>
+
+  <%= f.submit %>
+<% end %>
