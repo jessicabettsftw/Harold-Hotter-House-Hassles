@@ -1,7 +1,12 @@
-<%= form_for @wand do |f| %>
+<%= form_for([@wand], {url: character_wands_path}) do |f| %>
+  <div class="field">
   <%= f.label :core, "Choose a core" %>
-  
+  <%= f.collection_select :core_id, @cores, :id, :material %>
+  </div>
+  <div class="field">
   <%= f.label :wood, "Choose wood type" %>
-
-  <%= f.label :length, "Input a length" %>
+  <%= f.collection_select :wood_id, @woods, :id, :name %>
+  <%= f.hidden_field :character_id, :value => params[:character_id] %>
+  </div>
+  <%= f.submit class: "button"%>
 <% end %>

@@ -4,6 +4,7 @@ class CharactersController < ApplicationController
 
   def show
     @house = @character.house.name
+    @familiar = @character.familiar.species
   end
 
   def new
@@ -12,7 +13,6 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.create(character_params)
-    binding.pry
     if @character.valid?
       redirect_to character_path(@character)
     else
@@ -30,7 +30,7 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :house_id, :familiar)
+    params.require(:character).permit(:name, :house_id, :familiar_id)
   end
 
   def find_character
