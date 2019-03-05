@@ -1,0 +1,3 @@
+class Familiar < ApplicationRecord
+  
+end

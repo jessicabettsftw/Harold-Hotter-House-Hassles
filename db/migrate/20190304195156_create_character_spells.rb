@@ -4,7 +4,6 @@ class CreateCharacterSpells < ActiveRecord::Migration[5.2]
       t.references :character, foreign_key: true
       t.references :spell, foreign_key: true
 
-      t.timestamps
     end
   end
 end

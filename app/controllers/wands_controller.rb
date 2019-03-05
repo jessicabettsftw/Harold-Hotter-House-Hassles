@@ -1,8 +1,8 @@
 class WandsController < ApplicationController
   def new
     @wand = Wand.new
-    @cores = Wand.getCores
-    @woods = Wand.getWoods
+    # @cores = Wand.getCores
+    # @woods = Wand.getWoods
   end
 
   def edit

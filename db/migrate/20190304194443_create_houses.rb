@@ -9,7 +9,6 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.string :sigil
       t.string :img_url
 
-      t.timestamps
     end
   end
 end

@@ -1,0 +1,3 @@
+class Wood < ApplicationRecord
+  
+end

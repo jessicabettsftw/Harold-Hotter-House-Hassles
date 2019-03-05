@@ -5,7 +5,6 @@ class CreateSpells < ActiveRecord::Migration[5.2]
       t.string :category
       t.string :effect
 
-      t.timestamps
     end
   end
 end
