@@ -1,6 +1,9 @@
 class CharactersController < ApplicationController
   before_action :character_params, only: [:create, :update]
+  before_action :find_character, only: [:show, :edit]
+
   def show
+    @house = @character.house.name
   end
 
   def new
@@ -27,5 +30,9 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :house_id, :familiar)
+  end
+
+  def find_character
+    @character = Character.find(params[:id])
   end
 end

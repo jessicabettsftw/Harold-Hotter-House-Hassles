@@ -1,2 +1,18 @@
-<h1>Character#show</h1>
-<p>Find me in app/views/character/show.html.erb</p>
+<%# create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "house_id"
+    t.string "familiar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_characters_on_house_id"
+  end %>
+
+  <%= @character.name %><br />
+  <%= @house %>
+  <% if @character.wand %>
+    <%= @character.wand.core %>
+    <%= @character.wand.wood %>
+    <%= @character.wand.length %>
+  <% else %>
+    <%= link_to  "Choose your wand", new_wand_path %>
+  <% end %>

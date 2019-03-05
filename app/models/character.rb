@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
   belongs_to :house
+  belongs_to :wand
 
   # ________________
   # getFamiliars

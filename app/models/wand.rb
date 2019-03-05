@@ -1,7 +1,6 @@
 class Wand < ApplicationRecord
   belongs_to :character
 
-
   # ________________
   # wandList
   # ________________
@@ -17,7 +16,7 @@ class Wand < ApplicationRecord
   #
   # end
 
-  def getCores
+  def self.getCores
     wandData = {}
     File.open("db/seedFiles/wandData.rb") do |file|
       wandData = eval(file.read)
@@ -25,7 +24,7 @@ class Wand < ApplicationRecord
     wandData[:Cores]
   end
 
-  def getWoods
+  def self.getWoods
     wandData = {}
     File.open("db/seedFiles/wandData.rb") do |file|
       wandData = eval(file.read)

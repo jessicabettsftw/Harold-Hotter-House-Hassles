@@ -1,2 +1,7 @@
-<h1>Wand#new</h1>
-<p>Find me in app/views/wand/new.html.erb</p>
+<%= form_for @wand do |f| %>
+  <%= f.label :core, "Choose a core" %>
+  
+  <%= f.label :wood, "Choose wood type" %>
+
+  <%= f.label :length, "Input a length" %>
+<% end %>
