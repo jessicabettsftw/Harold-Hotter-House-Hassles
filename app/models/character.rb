@@ -1,4 +1,6 @@
 class Character < ApplicationRecord
+  has_many :character_spells
+  has_many :spells, through: :character_spells
   belongs_to :house
   has_one :wand
   belongs_to :familiar

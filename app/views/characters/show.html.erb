@@ -14,7 +14,9 @@
       <%= @character.wand.wood.name %>
     </div>
   <% else %>
-    <%= link_to  "Choose your wand", new_character_wands_path(@character) %>
+    <div class="field">
+      <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
+    </div>
   <% end %>
 
   <% if @character.spells %>
