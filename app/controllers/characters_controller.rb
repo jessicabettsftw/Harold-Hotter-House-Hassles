@@ -1,4 +1,4 @@
-class CharacterController < ApplicationController
+class CharactersController < ApplicationController
   def show
   end
 
