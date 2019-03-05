@@ -1,9 +1,26 @@
-<%= form_for @character do |f| %>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
+<div class="columns">
+  <div class="column is-half">
+      <%= form_for @character do |f| %>
 
-  <%= f.label :house_id, "House" %>
-  <%= f.collection_select :house_id, House.all, :id, :name %>
-
-  <%= f.submit %>
-<% end %>
+      <div class="field">
+        <%= f.label :name, "Name", class: "label" %>
+        <div class="control">
+          <%= f.text_field :name, class: "input" %>
+        </div>
+      </div>
+    
+      <div class="field">
+        <%= f.label :house_id, "House", class: "label" %>
+        <div class="control">
+          <div class="select">
+            <%= f.collection_select :house_id, House.all, :id, :name %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="field">
+        <%= f.submit class: "button is-green" %>
+      </div>
+    <% end %>
+  </div>
+</div>
