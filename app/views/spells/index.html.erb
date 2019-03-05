@@ -1,5 +1,5 @@
-<h1>Spell#index</h1>
+<h1>Choose A Spell To Study</h1>
 
 <% @spells.each do |spell| %>
-<li><%= link_to spell.name, spell %></li>
+<li><%= link_to spell.name, character_spell_path %></li>
 <% end %>
