@@ -1,0 +1,3 @@
+class FamiliarsController < ApplicationRecord
+
+end

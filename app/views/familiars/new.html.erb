@@ -1,0 +1,23 @@
+<div class="columns">
+  <div class="column is-half">
+
+    <div class="field">
+      <%= f.label :familiar_id, "Familiar", class: "label" %>
+      <div class="control">
+        <div class="select">
+          <%= f.collection_select :familiar_id, Familiar.all, :id, :species %>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :name, "Name", class: "label" %>
+      <div class="control">
+        <div class="select">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

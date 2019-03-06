@@ -3,7 +3,9 @@ class Character < ApplicationRecord
   has_many :spells, through: :character_spells
   belongs_to :house
   has_one :wand
-  belongs_to :familiar
+  has_one :familiar, through: :character_familiar
+
+  has_secure_password
 
   validates :name, { presence: true, uniqueness: true, length: {minimum: 3, maximum: 16} }
   validates :password, { presence: true, length: {minimum: 3, maximum: 16} }

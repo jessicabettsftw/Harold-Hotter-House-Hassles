@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
 
   def show
     @house = @character.house.name
-    @familiar = @character.familiar.species
+    #@familiar = @character.familiar.species doesnt exist yet
   end
 
   def new
@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :password, :house_id, :familiar_id)
+    params.require(:character).permit(:name, :password, :password_confirmation, :house_id)
   end
 
 end

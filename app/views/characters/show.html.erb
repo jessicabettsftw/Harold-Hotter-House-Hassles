@@ -2,7 +2,13 @@
   <%= @character.name %>
   </h1>
   <%= link_to @house, house_path(@character.house) %><br>
-  <%= @familiar %>
+
+  <% if @character.familiar %>
+    <%= @character.familiar %>
+  <% elsif %>
+    <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
+  <% end %>
+
   <% if @character.wand %>
     <div class="field">
       <h1>Wand:</h1>

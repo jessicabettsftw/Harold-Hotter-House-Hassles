@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def logged_in
-    @character = Character.find_by(login_params)
-    if @character != nil
+    @character = Character.find_by(name: params[:name])
+    if @character != nil && @character.authenticate(params[:password])
       session[:character_id] = @character.id
       redirect_to @character
     else
@@ -19,12 +19,6 @@ class SessionsController < ApplicationController
   def logout
     session.clear
     redirect_to "/"
-  end
-
-  private
-
-  def login_params
-    params.permit(:name, :password)
   end
 
 
