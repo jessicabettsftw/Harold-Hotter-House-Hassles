@@ -8,6 +8,9 @@ class CharactersController < ApplicationController
   end
 
   def new
+    if session[:character_id]
+      redirect_to character_path(@character)
+    end
     @character = Character.new
   end
 
