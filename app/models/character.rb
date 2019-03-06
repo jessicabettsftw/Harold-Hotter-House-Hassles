@@ -6,7 +6,7 @@ class Character < ApplicationRecord
   belongs_to :familiar
 
   validates :name, { presence: true, uniqueness: true, length: {minimum: 3, maximum: 16} }
-  #validates :password, { presence: true, length: {minimum: 3, maximum: 16} }
+  validates :password, { presence: true, length: {minimum: 3, maximum: 16} }
   # ________________
   # getFamiliars
   # ________________
