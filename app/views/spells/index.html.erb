@@ -1,5 +1,10 @@
 <h1>Choose A Spell To Study</h1>
 
+<% if flash[:message] %>
+  <p color="red">  <%= flash[:message] %> </p>
+<% end %>
+<ul>
 <% @spells.each do |spell| %>
 <li><%= link_to spell.name, character_spell_path(@character, spell) %></li>
 <% end %>
+</ul>

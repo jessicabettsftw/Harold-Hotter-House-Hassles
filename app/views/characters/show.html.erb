@@ -1,7 +1,7 @@
   <h1>
   <%= @character.name %>
   </h1>
-  <%= @house %><br>
+  <%= link_to @house, house_path(@character.house) %><br>
   <%= @familiar %>
   <% if @character.wand %>
     <div class="field">
@@ -26,5 +26,5 @@
       <%= link_to spell.name, character_spell_path(@character, spell) %>
     </div>
     <% end %>
-    <%= link_to  "Learn New Spells", spells_path + "/?char_id=" + @character.id.to_s %>
+    <%= link_to  "Learn New Spells", spells_path %>
   <% end %>

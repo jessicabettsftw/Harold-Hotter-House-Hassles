@@ -5,7 +5,7 @@ class Character < ApplicationRecord
   has_one :wand
   belongs_to :familiar
 
-  validates :name, { presence: true, uniqueness: true }
+  validates :name, { presence: true, uniqueness: true, length: {maximum: 16} }
   # ________________
   # getFamiliars
   # ________________

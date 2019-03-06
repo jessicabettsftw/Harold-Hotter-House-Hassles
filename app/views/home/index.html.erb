@@ -1,16 +1,12 @@
+<% if flash[:message] %>
+  <p color="red">  <%= flash[:message] %> </p>
+<% end %>
+
 <div class="columns">
   <div class="column has-text-centered">
     <h1 class="title">Harold Hotter's House Hassles</h1>
   </div>
 </div>
 
-<div class="columns">
-  <div class="column has-text-centered">
-    <a href="<%= login_path %>" class="button is-link is-large is-pulled-right">Login</a>
-  </div>
-
-  <div class="column is-half has-text-centered">
-    <a href="<%= signup_path %>" class="button is-primary is-large is-pulled-left">Sign Up</a>
-  </div>
 
 </div>

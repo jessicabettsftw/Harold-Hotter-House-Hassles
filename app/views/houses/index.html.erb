@@ -1,7 +1,7 @@
 <h1>Houses#index</h1>
 <ul>
 <% @houses.each do |house| %>
-<li><%= link_to house.name, house_path(house) %></li>
+<li><%= link_to house.name, house_path(house) %>  <%= house.calculate_points%> points</li>
 <img src="<%= house.img_url%>" >
 <% end %>
 <ul>

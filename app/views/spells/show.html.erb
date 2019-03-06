@@ -1,15 +1,13 @@
 <h1><%= @spell.name %></h1>
-<% if @spell.category != 'none' %>
 <div class="field">
 <%= @spell.category %>
 </div>
-<% end %>
 <div class="field">
 <%= @spell.effect %>
 </div>
 
 <% if !@learned %>
   <%= form_for([@spell], {url: character_spell_path}) do |x| %>
-    <%= x.submit value="Learn This Spell"%>
+    <%= x.submit "Learn Spell", class: "button" %>
   <% end %>
 <% end %>

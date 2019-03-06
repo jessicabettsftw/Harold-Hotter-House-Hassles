@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :character_params, only: [:create, :update]
-  before_action :find_character, only: [:show, :edit]
+  before_action :check_session, only: [:show]
 
   def show
     @house = @character.house.name
@@ -14,17 +14,12 @@ class CharactersController < ApplicationController
   def create
     @character = Character.create(character_params)
     if @character.valid?
+      session[:character_id] = @character.id
       redirect_to character_path(@character)
     else
-      # TODO: flash message
+      flash[:message] = 'Invalid Input'
       render 'new'
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   private
@@ -33,7 +28,4 @@ class CharactersController < ApplicationController
     params.require(:character).permit(:name, :house_id, :familiar_id)
   end
 
-  def find_character
-    @character = Character.find(params[:id])
-  end
 end
