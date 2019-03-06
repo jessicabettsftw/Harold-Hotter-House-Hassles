@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :house_id, :familiar_id)
+    params.require(:character).permit(:name, :password, :house_id, :familiar_id)
   end
 
 end
