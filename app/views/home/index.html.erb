@@ -4,13 +4,19 @@
   </div>
 </div>
 
-<div class="columns">
+<% if logged_in? %>
+  <div class="column is-half has-text-centered">
+    <a href="<%= logout_path %>" class="button is-primary is-large is-pulled-left">Logout</a>
+  </div>
+
+<% else %>
+  <div class="columns">
+    <div class="column is-half has-text-centered">
+      <a href="<%= signup_path %>" class="button is-primary is-large is-pulled-left">Sign Up</a>
+  </div>
+
   <div class="column has-text-centered">
     <a href="<%= login_path %>" class="button is-link is-large is-pulled-right">Login</a>
   </div>
-
-  <div class="column is-half has-text-centered">
-    <a href="<%= signup_path %>" class="button is-primary is-large is-pulled-left">Sign Up</a>
-  </div>
-
+<% end %>
 </div>

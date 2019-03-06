@@ -1,6 +1,5 @@
 class SpellsController < ApplicationController
   def index
-    @character = Character.find(params[:char_id])
     @spells = Spell.all
   end
 
@@ -10,7 +9,6 @@ class SpellsController < ApplicationController
   end
 
   def update
-    @character = Character.find(params[:character_id])
     charSpell = CharacterSpell.create(charSpell_params)
     if charSpell.valid?
       redirect_to character_path(@character)
@@ -23,11 +21,12 @@ class SpellsController < ApplicationController
   private
 
   def charSpell_params
+    params[:character_id] = session[:character_id]
     params[:spell_id] = params[:id]
     params.permit(:spell_id, :character_id)
   end
 
   def learned?
-    !!CharacterSpell.find_by(character_id: params[:character_id], spell_id: params[:id])
+    !!CharacterSpell.find_by(character_id: session[:character_id], spell_id: params[:id])
   end
 end

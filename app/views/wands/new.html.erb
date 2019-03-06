@@ -6,7 +6,6 @@
   <div class="field">
   <%= f.label :wood, "Choose wood type" %>
   <%= f.collection_select :wood_id, @woods, :id, :name %>
-  <%= f.hidden_field :character_id, :value => params[:character_id] %>
   </div>
   <%= f.submit class: "button"%>
 <% end %>

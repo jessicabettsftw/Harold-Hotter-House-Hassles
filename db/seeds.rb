@@ -26,12 +26,7 @@ def readSpells
   end
   #create spell objects & save to DB
   spellData.each do |spell|
-    if spell[:category] == 'name' #get rid of "category => 'name' in spellData.rb"
-      spell[:category] = 'none'
       Spell.create(spell)
-    else
-      Spell.create(spell)
-    end
   end
 end
 
