@@ -4,6 +4,8 @@ class Character < ApplicationRecord
   belongs_to :house
   has_one :wand
   belongs_to :familiar
+
+  validates :name, { presence: true, uniqueness: true }
   # ________________
   # getFamiliars
   # ________________

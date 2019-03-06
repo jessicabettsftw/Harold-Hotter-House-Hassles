@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get '/login', to: 'home#login'
+  post '/login', to: 'home#logged_in'
   get '/signup', to: 'characters#new'
   resources :spells, only: [:index]
 

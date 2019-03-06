@@ -1,2 +1,19 @@
 <h1>Home#login</h1>
-<p>Find me in app/views/home/login.html.erb</p>
+<div class="columns">
+  <div class="column is-half">
+      <%#= form_tag(controller: "home", action: "logged_in", method: "post") do  %>
+      <%= form_tag '/login' do  %>
+      <div class="field">
+        <%= label_tag :name, "Name", class: "label" %>
+        <div class="control">
+          <%= text_field_tag "name", "", class: "input" %>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <%= submit_tag "Login", class: "button is-green" %>
+      </div>
+    <% end %>
+  </div>
+</div>
