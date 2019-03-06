@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :characters, only: [:show, :create, :edit, :update] do
     resources :wands, only: [ :new, :create, :edit, :update]
-    resources :spells, only: [:show]
+    resources :spells, only: [:show, :update]
   end
 
   resources :houses, only: [:index, :show]

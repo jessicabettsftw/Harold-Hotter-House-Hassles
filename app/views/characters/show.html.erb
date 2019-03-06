@@ -23,8 +23,8 @@
   <h1>Spells:</h1>
     <% @character.spells.each do |spell| %>
     <div class="field">
-      <%= link_to spell.name, spell_path(spell) %>
+      <%= link_to spell.name, character_spell_path(@character, spell) %>
     </div>
     <% end %>
-    <%= link_to  "Learn New Spells", spells_path %>
+    <%= link_to  "Learn New Spells", spells_path + "/?char_id=" + @character.id.to_s %>
   <% end %>

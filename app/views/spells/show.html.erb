@@ -5,3 +5,9 @@
 <div class="field">
 <%= @spell.effect %>
 </div>
+
+<% if !@learned %>
+  <%= form_for([@spell], {url: character_spell_path}) do |x| %>
+    <%= x.submit value="Learn This Spell"%>
+  <% end %>
+<% end %>
