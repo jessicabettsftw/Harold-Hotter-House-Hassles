@@ -6,7 +6,7 @@
     "founder":"Goderic Gryffindor",
     "values":["courage","bravery","nerve","chivalry"],
     "colors":["scarlet","gold"],
-    "img_url":""
+    "img_url":"https://sep.yimg.com/ay/yhst-62697111611463/gryffindor-outdoor-flag-3.jpg"
   },
   {
     "name":"Ravenclaw",
@@ -15,7 +15,7 @@
     "founder":"Rowena Ravenclaw",
     "values":["intelligence","creativity","learning","wit"],
     "colors":["blue"," bronze"],
-    "img_url":""
+    "img_url":"https://sep.yimg.com/ay/yhst-62697111611463/ravenclaw-outdoor-flag-harry-potter-3.jpg"
   },
   {
     "name":"Slytherin",
@@ -24,7 +24,7 @@
     "founder":"Salazar Slytherin",
     "values":["ambition","cunning","leadership","resourcefulness"],
     "colors":["green","silver"],
-    "img_url":""
+    "img_url":"https://sep.yimg.com/ay/yhst-62697111611463/slytherin-outdoor-flag-harry-potter-3.jpg"
   },
   {
     "name":"Hufflepuff",
@@ -33,6 +33,6 @@
     "founder":"Helga Hufflepuff",
     "values":["hard work","patience","justice","loyalty"],
     "colors":["yellow","black"],
-    "img_url":""
+    "img_url":"https://sep.yimg.com/ay/yhst-62697111611463/hufflepuff-outdoor-flag-harry-potter-3.jpg"
   }
 ]
