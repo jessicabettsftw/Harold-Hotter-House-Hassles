@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       session[:character_id] = @character.id
       redirect_to @character
     else
-      redirect_to '/login'
+      flash[:message] = 'Invalid Log in'
+      redirect_to login_path
     end
   end
 

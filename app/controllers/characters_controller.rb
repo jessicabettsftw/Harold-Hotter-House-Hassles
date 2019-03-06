@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_action :character_params, only: [:create, :update]
+  before_action :check_session, only: [:show]
 
   def show
     @house = @character.house.name
@@ -16,15 +17,9 @@ class CharactersController < ApplicationController
       session[:character_id] = @character.id
       redirect_to character_path(@character)
     else
-      # TODO: flash message
+      flash[:message] = 'Invalid Input'
       render 'new'
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   private

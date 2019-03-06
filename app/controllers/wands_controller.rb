@@ -1,4 +1,5 @@
 class WandsController < ApplicationController
+  before_action :check_session, only: [:new]
 
   def new
     @wand = Wand.new
@@ -11,11 +12,9 @@ class WandsController < ApplicationController
     if @wand.valid?
       redirect_to character_path(@character)
     else
+      flash[:message] = 'Wand Can Not Be Created'
       redirect_to new_character_wand_path
     end
-  end
-
-  def edit
   end
 
   private

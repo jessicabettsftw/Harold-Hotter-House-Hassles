@@ -1,4 +1,6 @@
 class SpellsController < ApplicationController
+  before_action :check_session, only: [:show, :index]
+
   def index
     @spells = Spell.all
   end
@@ -13,7 +15,7 @@ class SpellsController < ApplicationController
     if charSpell.valid?
       redirect_to character_path(@character)
     else
-      binding.pry
+      flash[:message] = 'Spell cannot be learned'
       redirect_to spells_path
     end
   end

@@ -1,4 +1,7 @@
-<h1>Session#login</h1>
+<% if flash[:message] %>
+  <p color="red">  <%= flash[:message] %> </p>
+<% end %>
+
 <div class="columns">
   <div class="column is-half">
       <%= form_tag '/login' do  %>

@@ -6,7 +6,13 @@ class ApplicationController < ActionController::Base
     @character ||= Character.find_by(id: session[:character_id])
   end
 
+  def check_session
+    if !session[:character_id]
+      redirect_to root_path
+    end
+  end
+
   def logged_in?
-    !!@character
+    !!session[:character_id]
   end
 end
