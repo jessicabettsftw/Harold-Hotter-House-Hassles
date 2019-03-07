@@ -2,12 +2,24 @@
   <%= @character.name %>
   </h1>
   <%= link_to @house, house_path(@character.house) %><br>
-  <%= @familiar %>
+
+  <% if @familiar %>
+  <ul>
+    <%= label_tag "Familiar: "%>
+    <%= link_to "Edit", edit_character_familiar_path(@familiar) %>
+    <li>Name: <%= familiar_name %></li>
+    <li>Species: <%= @familiar.species %></li>
+  </ul>
+  <% elsif %>
+    <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
+  <% end %>
+
   <% if @character.wand %>
+  <%= label_tag "Wand: "%>
+  <%= link_to "Edit", edit_character_wand_path(@character.wand) %>
     <div class="field">
-      <h1>Wand:</h1>
-      <%= label_tag "Core Material: "%>
-      <%= @character.wand.core.material %>
+        <%= label_tag "Core Material: "%>
+        <%= @character.wand.core.material %>
     </div>
     <div class="field">
       <%= label_tag "Wood Type: "%>

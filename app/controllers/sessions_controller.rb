@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def logged_in
     @character = Character.find_by(name: params[:name])
-    if @character != nil
+    if @character != nil && @character.authenticate(params[:password])
       session[:character_id] = @character.id
       redirect_to @character
     else

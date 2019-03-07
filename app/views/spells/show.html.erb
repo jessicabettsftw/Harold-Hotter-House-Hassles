@@ -6,8 +6,13 @@
 <%= @spell.effect %>
 </div>
 
-<% if !@learned %>
-  <%= form_for([@spell], {url: character_spell_path}) do |x| %>
-    <%= x.submit "Learn Spell", class: "button" %>
+<% if @learned %>
+  <%= form_for([@spell], {url: character_spell_path, method: :delete}) do |x| %>
+    <%= x.submit "Forget Spell", class: "button" %>
+  <% end %>
+<% else %>
+  <%# end %>
+  <%= form_for([@spell], {url: take_test_spell_path, method: :get}) do |x| %>
+    <%= x.submit "Test Spell Knowledge", class: "button" %>
   <% end %>
 <% end %>

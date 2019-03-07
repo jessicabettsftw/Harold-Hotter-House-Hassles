@@ -15,6 +15,20 @@
       </div>
 
       <div class="field">
+        <%= f.label :password, "Password", class: "label" %>
+        <div class="control">
+          <%= f.password_field :password, class: "input" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "Password Confirmation", class: "label" %>
+        <div class="control">
+          <%= f.password_field :password_confirmation, class: "input" %>
+        </div>
+      </div>
+
+      <div class="field">
         <%= f.label :house_id, "House", class: "label" %>
         <div class="control">
           <div class="select">
@@ -22,16 +36,6 @@
           </div>
         </div>
       </div>
-
-      <div class="field">
-        <%= f.label :familiar_id, "Familiar", class: "label" %>
-        <div class="control">
-          <div class="select">
-            <%= f.collection_select :familiar_id, Familiar.all, :id, :species %>
-          </div>
-        </div>
-      </div>
-
 
       <div class="field">
         <%= f.submit class: "button is-green" %>
