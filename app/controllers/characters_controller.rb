@@ -31,12 +31,6 @@ class CharactersController < ApplicationController
     CharacterFamiliar.find_by(character_id: session[:character_id]).name
   end
 
-  def random_house
-    response = RestClient.get('https://www.potterapi.com/v1/sortingHat')
-    jsonHouse = JSON.parse(response.body)
-    jsonHouse.first.value
-  end
-
   private
 
   def character_params
