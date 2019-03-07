@@ -1,0 +1,13 @@
+<h1><%= @spell.name %></h1>
+<div class="field">
+  <%= form_for([@spell], {url: test_spell_path, method: :post}) do |x| %>
+    <%= x.label :category, "Category", class: "label" %>
+    <%= x.collection_select :category, @categories, :category, :category, :selected => @categories.first.category.to_s%>
+
+    <%= x.label :effect, "Effect", class: "label" %>
+    <%= x.collection_select :effect, @spells_effects, :effect, :effect, :selected => @spells_effects.first.effect.to_s %>
+    <div class="field">
+      <%= x.submit "Finish Spell Test", class: "button" %>
+    </div>
+  <% end %>
+</div>

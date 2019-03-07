@@ -9,7 +9,31 @@ class SpellsController < ApplicationController
     @spell = Spell.find(params[:id])
   end
 
-  def update
+  def destroy
+    charSpell = CharacterSpell.find_by(charSpell_params)
+    charSpell.destroy
+    redirect_to character_path(@character)
+  end
+
+  def take_test
+    @spell = Spell.find(params[:id])
+    @categories = get_unique_category
+    @spells_effects = get_rand_spell_effects
+  end
+
+  def test
+    @spell = Spell.find(params[:id])
+    @test_spell = Spell.find_by(category: params[:spell][:category], effect: params[:spell][:effect])
+    if (@test_spell != nil) && (@test_spell.id == @spell.id)
+      learn_spell
+    else
+      redirect_to character_path(@character)
+    end
+  end
+
+  private
+
+  def learn_spell
     charSpell = CharacterSpell.create(charSpell_params)
     if charSpell.valid?
       flash[:type] = "info"
