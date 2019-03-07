@@ -1,0 +1,19 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= spell.name %>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <%= spell.description %>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <% if spell.learned? %>
+      <a href="<%= character_spell_path(@character, spell) %>" class="card-footer-item"></a>
+    <% else %>
+      <a href="#" class="card-footer-item"></a>
+    <% end %>
+  </footer>
+</div>
