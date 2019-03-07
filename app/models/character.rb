@@ -3,6 +3,7 @@ class Character < ApplicationRecord
   has_many :spells, through: :character_spells
   belongs_to :house
   has_one :wand
+  has_one :character_familiar
   has_one :familiar, through: :character_familiar
 
   has_secure_password

@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
 
   def show
     @house = @character.house.name
-    #@familiar = @character.familiar.species doesnt exist yet
+    @familiar = @character.familiar
   end
 
   def new

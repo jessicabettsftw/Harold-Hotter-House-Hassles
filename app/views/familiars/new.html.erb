@@ -1,8 +1,8 @@
 <div class="columns">
   <div class="column is-half">
-
+    <%= form_for([@familiar], {url: character_familiars_path}) do |f| %>
     <div class="field">
-      <%= f.label :familiar_id, "Familiar", class: "label" %>
+      <%= f.label :familiar_id, "Species", class: "label" %>
       <div class="control">
         <div class="select">
           <%= f.collection_select :familiar_id, Familiar.all, :id, :species %>
@@ -13,11 +13,13 @@
     <div class="field">
       <%= f.label :name, "Name", class: "label" %>
       <div class="control">
-        <div class="select">
-          <%= f.text_field :name %>
-        </div>
+          <%= f.text_field :name, class: "input" %>
       </div>
     </div>
 
+    <div class="field">
+      <%= f.submit class: "button is-green" %>
+    </div>
+    <% end %>
   </div>
 </div>
