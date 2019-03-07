@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   before_action :character_params, only: [:create, :update]
   before_action :check_session, only: [:show]
 
-  helper_method :familiar_name
+  helper_method :familiar_name, :random_house
 
   def show
     @house = @character.house.name
@@ -29,6 +29,12 @@ class CharactersController < ApplicationController
 
   def familiar_name
     CharacterFamiliar.find_by(character_id: session[:character_id]).name
+  end
+
+  def random_house
+    response = RestClient.get('https://www.potterapi.com/v1/sortingHat')
+    jsonHouse = JSON.parse(response.body)
+    jsonHouse.first.value
   end
 
   private
