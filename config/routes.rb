@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :spells, only: [:index]
 
   resources :characters, only: [:show, :create] do
-    resources :wands, only: [ :new, :create]
+    resources :wands, only: [ :new, :create, :edit, :update]
     resources :spells, only: [:show, :update]
     resources :familiars, only: [:new, :create, :edit, :update]
   end
