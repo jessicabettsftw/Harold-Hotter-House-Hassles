@@ -2,6 +2,8 @@ class CharactersController < ApplicationController
   before_action :character_params, only: [:create, :update]
   before_action :check_session, only: [:show]
 
+  helper_method :familiar_name
+
   def show
     @house = @character.house.name
     @familiar = @character.familiar
@@ -23,6 +25,10 @@ class CharactersController < ApplicationController
       flash[:message] = 'Invalid Input'
       render 'new'
     end
+  end
+
+  def familiar_name
+    CharacterFamiliar.find_by(character_id: session[:character_id]).name
   end
 
   private

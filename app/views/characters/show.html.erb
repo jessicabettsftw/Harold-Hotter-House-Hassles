@@ -7,7 +7,7 @@
   <ul>
     <%= label_tag "Familiar: "%>
     <%= link_to "Edit", edit_character_familiar_path(@familiar), class: "button" %>
-    <li>Name: <%= @familiar.name %></li>
+    <li>Name: <%= familiar_name %></li>
     <li>Species: <%= @familiar.species %></li>
   </ul>
   <% elsif %>
@@ -17,6 +17,7 @@
   <% if @character.wand %>
     <div class="field">
       <h1>Wand:</h1>
+      <%= link_to "Edit", edit_character_wand_path(@character.wand), class: "button" %>
       <%= label_tag "Core Material: "%>
       <%= @character.wand.core.material %>
     </div>
