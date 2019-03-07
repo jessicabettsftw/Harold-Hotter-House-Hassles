@@ -6,7 +6,7 @@
 <%= @spell.effect %>
 </div>
 
-<% if @learned %>
+<% if @spell.learned?(@character) %>
   <%= form_for([@spell], {url: character_spell_path, method: :delete}) do |x| %>
     <%= x.submit "Forget Spell", class: "button" %>
   <% end %>

@@ -6,13 +6,14 @@ class SpellsController < ApplicationController
   end
 
   def show
-    @learned = learned?
     @spell = Spell.find(params[:id])
   end
 
   def update
     charSpell = CharacterSpell.create(charSpell_params)
     if charSpell.valid?
+      flash[:type] = "info"
+      flash[:message] = "You now know how to use #{charSpell.name}"
       redirect_to character_path(@character)
     else
       flash[:message] = 'Spell cannot be learned'
@@ -22,6 +23,8 @@ class SpellsController < ApplicationController
 
   def destroy
     charSpell = CharacterSpell.find_by(charSpell_params)
+    flash[:type] = "warning"
+    flash[:message] = "You forgot how to use #{charSpell.name}"
     charSpell.destroy
     redirect_to character_path(@character)
   end
@@ -32,9 +35,5 @@ class SpellsController < ApplicationController
     params[:character_id] = session[:character_id]
     params[:spell_id] = params[:id]
     params.permit(:spell_id, :character_id)
-  end
-
-  def learned?
-    !!CharacterSpell.find_by(character_id: session[:character_id], spell_id: params[:id])
   end
 end

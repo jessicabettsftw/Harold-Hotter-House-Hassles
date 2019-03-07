@@ -1,5 +1,6 @@
-  <h1>
-  <%= @character.name %>
+<%= render 'layouts/flashMessage' %>
+  <h1 class="is-size-1">
+  <%= @character.name%>
   </h1>
   <%= link_to @house, house_path(@character.house) %><br>
 
@@ -31,12 +32,15 @@
     </div>
   <% end %>
 
-  <% if @character.spells %>
-  <h1>Spells:</h1>
-    <% @character.spells.each do |spell| %>
-    <div class="field">
-      <%= link_to spell.name, character_spell_path(@character, spell) %>
+  <div class="field">
+    <span class="is-size-3">Spells:</span>
+    <div class="has-text-centered"><%= link_to  "Learn New Spells", spells_path, class: "button" %></div>
+  </div>
+    <div class="columns is-multiline">
+      <% if @character.spells %> 
+        <% @character.spells.each do |spell| %>
+        <%= render 'spells/spellCard', spell: spell %>
+        <% end %>
+      <% end %>
     </div>
-    <% end %>
-    <%= link_to  "Learn New Spells", spells_path %>
-  <% end %>
+  

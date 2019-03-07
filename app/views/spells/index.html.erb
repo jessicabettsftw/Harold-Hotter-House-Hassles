@@ -1,10 +1,8 @@
 <h1>Choose A Spell To Study</h1>
 
-<% if flash[:message] %>
-  <p color="red">  <%= flash[:message] %> </p>
-<% end %>
-<ul>
+<%= render 'layouts/flashMessage' %>
+<div class="columns is-multiline">
 <% @spells.each do |spell| %>
-<li><%= link_to spell.name, character_spell_path(@character, spell) %></li>
+  <%= render 'spellCard', spell: spell %>
 <% end %>
-</ul>
+</div>
