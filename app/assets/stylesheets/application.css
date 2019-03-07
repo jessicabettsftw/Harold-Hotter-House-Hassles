@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --midnight-blue: rgb(18, 25, 56);
+  --dark-blue: rgb(57, 73, 94);
+  --medium-blue: rgb(119, 148, 171);
+  --light-blue: rgb(148, 181, 193);
+  --robins-egg: rgb(247, 255, 242);
+}
+.bg-midnight-blue {
+  background-color: var(--midnight-blue);
+}
+
+.bg-dark-blue {
+  background-color: var(--midnight-blue);
+}
+
+.bg-medium-blue {
+  background-color: var(--medium-blue)
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue)
+}
+
+.bg-robins-egg {
+  background-color: var(--robins-egg)
+}
+
+.navbar, .navbar a, .navbar a:link {
+  background-color: var(--midnight-blue) !important;
+  color: var(--robins-egg) !important;
+}
+.navbar a:hover {
+  background-color: var(--dark-blue) !important
+}
