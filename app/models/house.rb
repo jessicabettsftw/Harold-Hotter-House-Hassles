@@ -16,6 +16,14 @@ class House < ApplicationRecord
   end
 
   def calculate_points
-    self.spells.count
+    count = 0
+    self.spells.each do |spell|
+      if spell.category == "Curse"
+        count -= 30
+      else
+        count += 10
+      end
+    end
+    count
   end
 end
