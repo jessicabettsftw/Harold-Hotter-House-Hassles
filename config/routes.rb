@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#logged_in'
   get '/logout', to: 'sessions#logout'
   get '/signup', to: 'characters#new'
+  delete '/characters/:character_id/spells/:id', to: 'spells#delete'
   resources :spells, only: [:index]
 
   resources :characters, only: [:show, :create] do

@@ -20,6 +20,12 @@ class SpellsController < ApplicationController
     end
   end
 
+  def delete
+    charSpell = CharacterSpell.find_by(charSpell_params)
+    charSpell.destroy
+    redirect_to character_path(@character)
+  end
+
   private
 
   def charSpell_params
