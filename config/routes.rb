@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#logged_in'
   get '/logout', to: 'sessions#logout'
   get '/signup', to: 'characters#new'
-  delete '/characters/:character_id/spells/:id', to: 'spells#delete'
+  #delete '/characters/:character_id/spells/:id', to: 'spells#delete'
   resources :spells, only: [:index]
 
   resources :characters, only: [:show, :create] do
     resources :wands, only: [ :new, :create, :edit, :update]
-    resources :spells, only: [:show, :update]
+    resources :spells, only: [:show, :update, :destroy]
     resources :familiars, only: [:new, :create, :edit, :update]
   end
 

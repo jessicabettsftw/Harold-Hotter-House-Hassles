@@ -7,7 +7,7 @@
 </div>
 
 <% if @learned %>
-  <%= form_for([@spell], {url: "/characters/" + params[:character_id] + "/spells/" + params[:id], method: :delete}) do |x| %>
+  <%= form_for([@spell], {url: character_spell_path, method: :delete}) do |x| %>
     <%= x.submit "Forget Spell", class: "button" %>
   <% end %>
 <% else %>
