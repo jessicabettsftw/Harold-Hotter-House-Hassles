@@ -86,13 +86,16 @@ end
 if !House.all.any?
   puts "Seeding House Data"
   readHouse
-elsif !Spell.all.any?
+end
+if !Spell.all.any?
   puts "Seeding Spell Data"
   readSpells
-elsif !Wood.all.any?
+end
+if !Wood.all.any?
   puts "Seeding Wand Data"
   readWand
-elsif !Familiar.all.any?
+end
+if !Familiar.all.any?
   puts "Seeding Familiar Data"
   readFamiliar
 end
