@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   def destroy_session_if_no_characters
     if session[:character_id] && !Character.all.any?
       session.destroy
+      redirect_to root_path
     end
   end
 end

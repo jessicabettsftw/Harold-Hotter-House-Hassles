@@ -1,4 +1,5 @@
 class FamiliarsController < ApplicationController
+  before_action :check_session
 
   def new
     @familiar = CharacterFamiliar.new
@@ -7,6 +8,11 @@ class FamiliarsController < ApplicationController
   def create
     @familiar = CharacterFamiliar.create(familiar_params)
     if @familiar.valid?
+      flash[:type] = "success"
+      flash[:message] = [
+        "#{@familiar.name} seems to have taken a liking to you.",
+        "A #{@character.familiar.species} really is the best companion for you."
+      ]
       redirect_to character_path(@character)
     else
       flash[:message] = 'Familiar Can Not Be Created'
@@ -22,6 +28,11 @@ class FamiliarsController < ApplicationController
     @familiar = CharacterFamiliar.find_by(character_id: session[:character_id])
     @familiar.update(familiar_params)
     if @familiar.valid?
+      flash[:type] = "success"
+      flash[:message] = [
+        "#{@familiar.name} seems to have taken a liking to you.",
+        "A #{@character.familiar.species} really is the best companion for you."
+      ]
       redirect_to character_path(@character)
     else
       flash[:message] = 'Familiar Can Not Be Created'

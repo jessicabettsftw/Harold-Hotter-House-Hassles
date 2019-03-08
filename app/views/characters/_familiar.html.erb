@@ -2,9 +2,9 @@
   <ul>
     <li>
       <span class="title">Familiar <i class="fas fa-paw"></i></span>
-      <a href="<%= edit_character_familiar_path(@familiar) %>"><i class="fas fa-pen" alt="Edit your familiar"></i></a>
     </li>
     <li>Name: <%= familiar_name %></li>
     <li>Species: <%= @familiar.species %></li>
+    <li style="padding-top: 2px"><a href="<%= edit_character_familiar_path(@familiar) %>" class="button is-link is-outlined">Edit&nbsp;&nbsp;<i class="fas fa-pen" style="font-size: .7em;" alt="Edit your familiar"></i></a></li>
   </ul>
 </div>

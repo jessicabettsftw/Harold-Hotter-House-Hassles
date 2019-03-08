@@ -1,5 +1,5 @@
 class SpellsController < ApplicationController
-  before_action :check_session, only: [:show, :index]
+  before_action :check_session
 
   def index
     if params[:sort] && sort_params

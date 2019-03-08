@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :check_session, only: [:stats]
 
   def index
 

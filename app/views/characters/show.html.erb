@@ -15,6 +15,7 @@
       <%= render 'characters/familiar' %>
     <% elsif %>
       <%= link_to  "Choose your familiar", new_character_familiar_path(@character), class: "button is-primary" %>
+      <div class="field">Which companion will join you on your magical journey?</div>
     <% end %>
   </div>
 
@@ -23,6 +24,7 @@
       <%= render 'characters/wand' %>
     <% else %>
       <%= link_to  "Choose your wand", new_character_wand_path(@character), class: "button is-primary" %>
+      <div class="field">Go to Olivander's and get a new wand.</div>
     <% end %>
   </div>
 </div>
@@ -42,7 +44,7 @@
 <div class="field">
   <span class="title is-size-3">Learned Spells <i class="fas fa-book-open"></i></span>
 
-  <div class="field"><%= link_to  "Learn some spells!", spells_path, class: "button is-info" %></div>
+  <div class="field" style="padding-top: 10px"><%= link_to  "Learn some spells!", spells_path, class: "button is-info" %></div>
 </div>
 <% end %>
 

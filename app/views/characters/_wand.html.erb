@@ -1,8 +1,8 @@
 <ul>
   <li>
     <span class="title">Wand <i class="fas fa-magic"></i></span>
-    <a href="<%= edit_character_wand_path(@character.wand) %>"><i class="fas fa-pen" alt="Edit your familiar"></i></a>
   </li>
   <li>&nbsp;<%= label_tag "Wood Type: "%> <%= @character.wand.wood.name %></li>
   <li>&nbsp;<%= label_tag "Core Material: "%> <%= @character.wand.core.material %></li>
+  <li style="padding-top: 2px"><a href="<%= edit_character_wand_path(@character.wand) %>" class="button is-link is-outlined">Edit&nbsp;&nbsp;<i class="fas fa-pen" style="font-size: .7em;" alt="Edit your familiar"></i></a></li>
 </ul>
