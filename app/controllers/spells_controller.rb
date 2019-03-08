@@ -18,29 +18,21 @@ class SpellsController < ApplicationController
     redirect_to character_path(@character)
   end
 
-
   def take_test
     @spell = Spell.find(params[:id])
-    @categories = get_unique_category
-    @spells_effects = get_rand_spell_effects
+    @categories = Spell.get_unique_category
+    @spells_effects = Spell.get_rand_spell_effects(@spell)
   end
 
   def test
     @spell = Spell.find(params[:id])
     @test_spell = Spell.find_by(category: params[:spell][:category], effect: params[:spell][:effect])
     if (@test_spell != nil) && (@test_spell.id == @spell.id)
-      if @spell.category != "Curse"
-        flash[:type] = "success"
-        flash[:message] = "You now know how to use #{@spell.name}"
-      elsif @spell.category == "Curse"
-        flash[:type] = "danger"
-        flash[:message] = "You now know how to use #{@spell.name}. How terrible of you. -30 Points to #{@character.house}!"
-      end
       learn_spell
     else
       flash[:type] = "warning"
       flash[:message] = "Study harder and try again."
-      redirect_to character_path(@character)
+      redirect_to spells_path
     end
   end
 
@@ -49,10 +41,16 @@ class SpellsController < ApplicationController
   def learn_spell
     charSpell = CharacterSpell.create(charSpell_params)
     if charSpell.valid?
-      flash[:type] = "info"
-      flash[:message] = "You now know how to use #{charSpell.name}"
+      if @spell.category == "Curse"
+        flash[:type] = "danger"
+        flash[:message] = "You now know how to use #{@spell.name}. How terrible of you. -30 Points to #{@character.house.name}!"
+      else
+        flash[:type] = "success"
+        flash[:message] = "You now know how to use #{@spell.name}"
+      end
       redirect_to character_path(@character)
     else
+      flash[:type] = "warning"
       flash[:message] = 'Spell cannot be learned'
       redirect_to spells_path
     end
@@ -62,28 +60,6 @@ class SpellsController < ApplicationController
     params[:character_id] = session[:character_id]
     params[:spell_id] = params[:id]
     params.permit(:spell_id, :character_id)
-  end
-
-  def get_rand_spell_effects
-    rand_spells = Spell.all.sample(3)
-    rand_spells << @spell
-    rand_spells.shuffle
-  end
- 
-  def get_unique_category
-    categories = []
-    Spell.all.collect do |spell|
-      included = false
-      categories.each do |categoryspell|
-        if categoryspell.category == spell.category
-          included = true
-        end
-      end
-      if included == false
-        categories << spell
-      end
-    end
-    categories
   end
 
 end

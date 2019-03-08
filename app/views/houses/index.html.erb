@@ -1,6 +1,12 @@
-<h1 class="is-size-1">Houses</h1>
+<h1 class="title is-size-1">Houses</h1>
 <div class="columns">
   <% @houses.each do |house| %>
-  <%= render 'houses/houseHero', house: house %>
+    <%= render 'houses/houseHero', house: house %>
+  <% end %>
+</div>
+
+<div class="columns">
+  <% @houses.each do |house| %>
+    <%= render 'houses/houseLeaders', house: house  %>
   <% end %>
 </div>

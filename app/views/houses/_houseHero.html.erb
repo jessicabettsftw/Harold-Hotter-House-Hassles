@@ -1,19 +1,8 @@
-<a href="<%= house_path(house) %>">
+
   <div class="column">
-    <div class="title"><%= house.name %></div>
-    <div class="subtitle"><%= house.calculate_points%> points</div>
-    <img src="<%= house.img_url%>">
+    <a href="<%= house_path(house) %>">
+      <div class="title"><%= house.name %></div>
+      <div class="subtitle"><%= house.calculate_points%> points</div>
+      <img src="<%= house.img_url%>" style="height: 150px;">
+    </a>
   </div>
-  <div class="column">
-    <div class="subtitle">Leaderboard </div>
-    <% @char_points_array = house.get_char_points %>
-    <ol>
-      <% @char_points_array.each do |character| %>
-        <li>
-            <%= character[:name] %>
-            <%= character[:points] %>
-        </li>
-      <% end %>
-    </ol>
-  </div>
-</a>

@@ -1,23 +1,23 @@
-<h1 class="is-size-1"><%= @spell.name %></h1>
-<div class="field">
-  <%= form_for([@spell], {url: test_spell_path, method: :post}) do |f| %>
-  
-    <div class="field">
-        <%= f.label :category, "Category", class: "label" %>
-        <div class="select">
-          <%= f.collection_select :category, @categories, :category, :category, :selected => @categories.first.category.to_s%>    
-        </div>
-    </div>
+<h1 class="title is-size-2">
+  <%= @spell.name %>
+</h1>
+<%= form_for([@spell], {url: test_spell_path, method: :post}) do |f| %>
 
-    <div class="field">
-      <%= f.label :effect, "Effect", class: "label" %>
+  <div class="field">
+      <%= f.label :category, "Category", class: "label" %>
       <div class="select">
-        <%= f.collection_select :effect, @spells_effects, :effect, :effect, :selected => @spells_effects.first.effect.to_s %>
+        <%= f.collection_select :category, @categories, :category, :category, :selected => @categories.first.category.to_s%>    
       </div>
-    </div>
+  </div>
 
-    <div class="field">
-      <%= f.submit "Finish Spell Test", class: "button" %>
+  <div class="field">
+    <%= f.label :effect, "Effect", class: "label" %>
+    <div class="select">
+      <%= f.collection_select :effect, @spells_effects, :effect, :effect, :selected => @spells_effects.first.effect.to_s %>
     </div>
-  <% end %>
-</div>
+  </div>
+
+  <div class="field">
+    <%= f.submit "Finish Spell Test", class: "button is-link" %>
+  </div>
+<% end %>

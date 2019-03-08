@@ -1,40 +1,39 @@
-<div class="hero">
-  <div class="hero-body">
-    <h1 class="title is-size-1">
-    <%= @character.name%>
-    </h1>
-    <h1 class="subtitle"><%= link_to @house, house_path(@character.house) %></h1>
-    <div class="columns">
-    <div class="column">
+
+<h1 class="title is-size-1">
+  <%= @character.name%>
+</h1>
+
+<div class="subtitle is-size-4">
+  <%= link_to @house, house_path(@character.house) %>
+</div>
+
+<div class="columns">
+  <div class="column">
     <% if @familiar %>
       <%= render 'characters/familiar' %>
     <% elsif %>
       <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
     <% end %>
   </div>
+
   <div class="column">
     <% if @character.wand %>
-    <%= label_tag "Wand: "%>
-    <%= link_to "Edit", edit_character_wand_path(@character.wand) %>
-      <ul>
-        <li><%= label_tag "Core Material: "%> <%= @character.wand.core.material %></li>
-        <li><%= label_tag "Wood Type: "%> <%= @character.wand.wood.name %></li>
+      <%= render 'characters/wand' %>
     <% else %>
-        <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
+      <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
     <% end %>
   </div>
-   </div>
-  </div>
 </div>
-  <div class="field">
-    <span class="is-size-3">Spells:</span>
-    <div class="has-text-centered"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></div>
-  </div>
-    <div class="columns is-multiline">
-      <% if @character.spells %> 
-        <% @character.spells.each do |spell| %>
-        <%= render 'spells/spellCard', spell: spell %>
-        <% end %>
-      <% end %>
-    </div>
-  
+
+<div class="field">
+  <span class="is-size-3">Learned Spells:</span>
+  <span class="is-pulled-right"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></span>
+</div>
+<div class="columns is-multiline">
+  <% if @character.spells %> 
+    <% @character.spells.each do |spell| %>
+    <%= render 'spells/spellCard', spell: spell %>
+    <% end %>
+  <% end %>
+</div>
+

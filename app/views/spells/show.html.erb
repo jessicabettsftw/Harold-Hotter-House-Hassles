@@ -1,18 +1,20 @@
-<h1><%= @spell.name %></h1>
-<div class="field">
-<%= @spell.category %>
+<h1 class="title is-size-2">
+  <%= @spell.name %>
+</h1>
+<div class="subtitle">
+  <%= @spell.category %>
 </div>
 <div class="field">
-<%= @spell.effect %>
+  <%= @spell.effect %>
 </div>
 
 <% if @spell.learned?(@character) %>
   <%= form_for([@spell], {url: character_spell_path, method: :delete}) do |x| %>
-    <%= x.submit "Forget Spell", class: "button" %>
+    <%= x.submit "Forget Spell", class: "button is-warning" %>
   <% end %>
 <% else %>
   <%# end %>
   <%= form_for([@spell], {url: take_test_spell_path, method: :get}) do |x| %>
-    <%= x.submit "Test Spell Knowledge", class: "button" %>
+    <%= x.submit "Test Spell Knowledge", class: "button is-primary" %>
   <% end %>
 <% end %>

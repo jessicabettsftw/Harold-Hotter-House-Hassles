@@ -1,12 +1,13 @@
+<h1 class="title is-size-2">Get a new wand</h1>
 <%= form_for([@wand], {url: character_wand_path(@wand)}) do |f| %>
   <div class="field">
-    <%= f.label :core, "Choose a core" %>
+    <%= f.label :core, "Choose a core", class: "label" %>
     <div class="select">
       <%= f.collection_select :core_id, @cores, :id, :material %>
     </div>
   </div>
   <div class="field">
-    <%= f.label :wood, "Choose wood type"%>
+    <%= f.label :wood, "Choose wood type", class: "label" %>
     <div class="select">
       <%= f.collection_select :wood_id, @woods, :id, :name %>
     </div>

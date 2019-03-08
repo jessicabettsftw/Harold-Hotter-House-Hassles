@@ -76,3 +76,6 @@
 .navbar a:hover {
   background-color: var(--dark-blue) !important
 }
+html {
+  overflow: auto;
+}

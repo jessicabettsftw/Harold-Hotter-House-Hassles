@@ -1,0 +1,14 @@
+<div class="column">
+  <div class="subtitle">House Leaders </div>
+  <% @char_points_array = house.get_char_points %>
+  <div class="content">
+    <ol>
+      <% @char_points_array.each do |character| %>
+        <li>
+            <%= character[:name] %>
+            <%= character[:points] %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
