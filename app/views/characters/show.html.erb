@@ -12,7 +12,7 @@
     <% if @familiar %>
       <%= render 'characters/familiar' %>
     <% elsif %>
-      <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
+      <%= link_to  "Choose your familiar", new_character_familiar_path(@character), class: "button is-primary" %>
     <% end %>
   </div>
 
@@ -20,7 +20,7 @@
     <% if @character.wand %>
       <%= render 'characters/wand' %>
     <% else %>
-      <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
+      <%= link_to  "Choose your wand", new_character_wand_path(@character), class: "button is-primary" %>
     <% end %>
   </div>
 </div>
@@ -31,7 +31,7 @@
 </div>
 <div class="columns is-multiline">
   <% if @character.spells %> 
-    <% @character.spells.each do |spell| %>
+    <% @character.spells.order('spell_id').each do |spell| %>
     <%= render 'spells/spellCard', spell: spell %>
     <% end %>
   <% end %>

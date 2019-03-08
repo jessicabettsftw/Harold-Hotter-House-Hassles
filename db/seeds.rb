@@ -72,7 +72,27 @@ def readFamiliar
   end
 end
 
-readHouse
-readSpells
-readWand
-readFamiliar
+def force_seed
+  puts "Seeding House Data"
+  readHouse
+  puts "Seeding Spell Data"
+  readSpells
+  puts "Seeding Wand Data"
+  readWand
+  puts "Seeding Familiar Data"
+  readFamiliar
+end
+
+if !House.all.any?
+  puts "Seeding House Data"
+  readHouse
+elsif !Spell.all.any?
+  puts "Seeding Spell Data"
+  readSpells
+elsif !Wood.all.any?
+  puts "Seeding Wand Data"
+  readWand
+elsif !Familiar.all.any?
+  puts "Seeding Familiar Data"
+  readFamiliar
+end

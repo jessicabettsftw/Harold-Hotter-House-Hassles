@@ -8,8 +8,8 @@ class Character < ApplicationRecord
 
   has_secure_password
 
-  validates :name, { presence: true, uniqueness: true, length: {minimum: 3, maximum: 16} }
-  validates :password, { presence: true, length: {minimum: 3, maximum: 16} }
+  validates :name, presence: true, uniqueness: true, length: {minimum: 3, maximum: 16}, format: {with: /\A[a-z ]+(?: [a-z ]+)?\z/i}
+  validates :password, presence: true, length: {minimum: 3, maximum: 16}
   # ________________
   # getFamiliars
   # ________________

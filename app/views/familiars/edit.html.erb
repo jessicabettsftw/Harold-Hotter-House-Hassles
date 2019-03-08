@@ -1,5 +1,6 @@
 <div class="columns">
   <div class="column is-half">
+    <h1 class="title is-size-2">Get a new familiar</h1>
     <%= form_for([@familiar], {url: character_familiar_path(@familiar)}) do |f| %>
     <div class="field">
       <%= f.label :familiar_id, "Species", class: "label" %>
@@ -18,7 +19,7 @@
     </div>
 
     <div class="field">
-      <%= f.submit class: "button bg-medium-blue text-robins-egg" %>
+      <%= f.submit class: "button is-info" %>
     </div>
     
     <% end %>

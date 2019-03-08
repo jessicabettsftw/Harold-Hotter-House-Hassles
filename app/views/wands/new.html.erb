@@ -1,15 +1,16 @@
+<h1 class="title is-size-2">Choose your wand</h1>
 <%= form_for([@wand], {url: character_wands_path}) do |f| %>
   <div class="field">
-  <%= f.label :core, "Choose a core" %>
+  <%= f.label :core, "Choose a core", class: "label" %>
     <div class="select">
         <%= f.collection_select :core_id, @cores, :id, :material %>
     </div>
   </div>
   <div class="field">
-  <%= f.label :wood, "Choose wood type" %>
+  <%= f.label :wood, "Choose wood type", class: "label" %>
   <div class="select">
       <%= f.collection_select :wood_id, @woods, :id, :name %>
   </div>
   </div>
-  <%= f.submit class: "button"%>
+  <%= f.submit class: "button is-success"%>
 <% end %>
