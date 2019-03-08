@@ -1,6 +1,4 @@
 <h1>Choose A Spell To Study</h1>
-
-<%= render 'layouts/flashMessage' %>
 <div class="columns is-multiline">
 <% @spells.each do |spell| %>
   <%= render 'spellCard', spell: spell %>
