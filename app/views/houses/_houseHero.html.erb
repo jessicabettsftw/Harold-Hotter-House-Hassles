@@ -4,7 +4,7 @@
     <div class="subtitle"><%= house.calculate_points%> points</div>
     <img src="<%= house.img_url%>">
   </div>
-  <div>
+  <div class="column">
     <div class="subtitle">Leaderboard </div>
     <% @char_points_array = house.get_char_points %>
     <ol>
@@ -15,6 +15,5 @@
         </li>
       <% end %>
     </ol>
-    <div> </div>
   </div>
 </a>
