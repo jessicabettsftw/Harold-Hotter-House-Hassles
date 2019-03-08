@@ -1,0 +1,35 @@
+<div class="columns is-multiline">
+
+  <div class="column has-text-centered is-one-third" style="min-height: 200px">
+    <div class="title">Most Evil Student</div>
+    <div class="subtitle">Student that knows the most curses</div>
+    <%= @most_evil_student[:name] %> - <%= @most_evil_student[:num_spells] %>
+  </div>
+
+  <div class="column has-text-centered is-one-third bg-light-blue" style="min-height: 200px; border-radius: 10px">
+    <div class="title">Winning House</div>
+    <div class="subtitle"><%= @winning_house[:name] %></div>
+    <div class="is-size-1"><%= @winning_house[:points] %></div>
+  </div>
+
+  <div class="column has-text-centered is-one-third" style="min-height: 200px">
+    <div class="title">Most Common Familiar</div>
+    <div class="subtitle"> <%= @most_common_familiar[:name] %> - <%= @most_common_familiar[:species] %></div>
+  </div>
+
+  <div class="column has-text-centered is-one-third" style="min-height: 200px">
+    <div class="title">Most Common Spell</div>
+    <div class="subtitle"><%= @most_common_spell[:name] %> - <%= @most_common_spell[:spell] %></div>
+  </div>
+
+  <div class="column has-text-centered is-one-third" style="min-height: 200px">
+    <div class="title">Most Common Wand Core</div>
+    <div class="subtitle"><%= @most_common_wand_core[:name] %> - <%= @most_common_wand_core[:core] %></div>
+  </div>
+
+  <div class="column has-text-centered is-one-third" style="min-height: 200px">
+      <div class="title">Most Common Wand Wood</div>
+      <div class="subtitle"><%= @most_common_wand_wood[:name] %> - <%= @most_common_wand_wood[:wood] %></div>
+    </div>
+
+</div>

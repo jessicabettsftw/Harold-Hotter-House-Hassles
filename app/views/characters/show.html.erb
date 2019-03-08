@@ -1,5 +1,6 @@
 <h1 class="title is-size-1">
-  <%= @character.name%>
+    <i class="fas fa-hat-wizard"></i><br />
+    <%= @character.name%>
 </h1>
 
 <div class="subtitle is-size-4">
@@ -27,7 +28,7 @@
 </div>
 <% if @character.spells.any? %>
   <div class="field">
-    <span class="is-size-3">Learned Spells:</span>
+    <span class="title is-size-3">Learned Spells <i class="fas fa-book-open"></i></span>
   
     <span class="is-pulled-right"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></span>
   </div>
@@ -39,7 +40,7 @@
   </div>
 <% else %>
 <div class="field">
-  <span class="is-size-3">Learned Spells:</span>
+  <span class="title is-size-3">Learned Spells <i class="fas fa-book-open"></i></span>
 
   <div class="field"><%= link_to  "Learn some spells!", spells_path, class: "button is-info" %></div>
 </div>

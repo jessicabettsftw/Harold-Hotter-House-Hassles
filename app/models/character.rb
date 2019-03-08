@@ -22,4 +22,24 @@ class Character < ApplicationRecord
     end
     count
   end
+
+  def self.most_evil
+    evil_spells = []
+    Character.all.each do |character|
+      num_spells = character.spells.select { |spell| spell.category == 'Curse'}.count
+      name = character.name
+      evil_spells << {:name => name, :num_spells => num_spells}
+    end
+    evil_spells.sort_by { |character | character[:num_spells] }.reverse.first
+  end
+
+  def self.smartest_student
+    evil_spells = []
+    Character.all.each do |character|
+      num_spells = character.spells.count
+      name = character.name
+      evil_spells << {:name => name, :num_spells => num_spells}
+    end
+    evil_spells.sort_by { |character | character[:num_spells] }.reverse.first
+  end
 end

@@ -30,11 +30,17 @@ class House < ApplicationRecord
   def get_char_points
     char_points = []
     self.characters.each do |character |
-      points = character.calculate_points
-      name = character.name
-      char_points << {:name => name, :points => points}
+      char_points << {:name => character.name, :points => character.calculate_points}
     end
     char_points.sort_by { |character | character[:points] }.reverse
+  end
+
+  def self.winning_house
+    house_points = []
+    self.all.each do |house|
+      house_points << {:name => house.name, :points => house.calculate_points}
+    end
+    house_points.sort_by { |house | house[:points] }.reverse.first
   end
   
 end

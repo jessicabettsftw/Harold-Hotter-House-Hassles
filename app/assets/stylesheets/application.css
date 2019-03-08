@@ -51,7 +51,7 @@
 }
 
 .text-dark-blue {
-  color: var(--midnight-blue);
+  color: var(--dark-blue);
 }
 
 .text-medium-blue {
@@ -78,4 +78,8 @@
 }
 html {
   overflow: auto;
+}
+
+.title-font {
+  font-family: emilys-candy, sans-serif;
 }
