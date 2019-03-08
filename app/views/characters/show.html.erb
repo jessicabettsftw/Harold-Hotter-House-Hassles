@@ -24,16 +24,24 @@
     <% end %>
   </div>
 </div>
-
-<div class="field">
-  <span class="is-size-3">Learned Spells:</span>
-  <span class="is-pulled-right"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></span>
-</div>
-<div class="columns is-multiline">
-  <% if @character.spells %> 
+<% if @character.spells.any? %>
+  <div class="field">
+    <span class="is-size-3">Learned Spells:</span>
+  
+    <span class="is-pulled-right"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></span>
+  </div>
+  <div class="columns is-multiline">
+  
     <% @character.spells.order('spell_id').each do |spell| %>
     <%= render 'spells/spellCard', spell: spell %>
     <% end %>
-  <% end %>
+  </div>
+<% else %>
+<div class="field">
+  <span class="is-size-3">Learned Spells:</span>
+
+  <div class="field"><%= link_to  "Learn some spells!", spells_path, class: "button is-info" %></div>
 </div>
+<% end %>
+
 

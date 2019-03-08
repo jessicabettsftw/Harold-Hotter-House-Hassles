@@ -10,7 +10,7 @@
 
 <% if @spell.learned?(@character) %>
   <%= form_for([@spell], {url: character_spell_path, method: :delete}) do |x| %>
-    <%= x.submit "Forget Spell", class: "button is-warning" %>
+    <%= x.submit "Forget Spell", class: "button is-warning is-outlined" %>
   <% end %>
 <% else %>
   <%# end %>
