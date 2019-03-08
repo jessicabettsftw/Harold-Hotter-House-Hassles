@@ -4,4 +4,17 @@
     <div class="subtitle"><%= house.calculate_points%> points</div>
     <img src="<%= house.img_url%>">
   </div>
+  <div>
+    <div class="subtitle">Leaderboard </div>
+    <% @char_points_array = house.get_char_points %>
+    <ol>
+      <% @char_points_array.each do |character| %>
+        <li>
+            <%= character[:name] %>
+            <%= character[:points] %>
+        </li>
+      <% end %>
+    </ol>
+    <div> </div>
+  </div>
 </a>

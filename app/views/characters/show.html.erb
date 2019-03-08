@@ -1,40 +1,35 @@
 <%= render 'layouts/flashMessage' %>
-  <h1 class="is-size-1">
-  <%= @character.name%>
-  </h1>
-  <%= link_to @house, house_path(@character.house) %><br>
-
-  <% if @familiar %>
-  <ul>
-    <%= label_tag "Familiar: "%>
-    <%= link_to "Edit", edit_character_familiar_path(@familiar) %>
-    <li>Name: <%= familiar_name %></li>
-    <li>Species: <%= @familiar.species %></li>
-  </ul>
-  <% elsif %>
-    <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
-  <% end %>
-
-  <% if @character.wand %>
-  <%= label_tag "Wand: "%>
-  <%= link_to "Edit", edit_character_wand_path(@character.wand) %>
-    <div class="field">
-        <%= label_tag "Core Material: "%>
-        <%= @character.wand.core.material %>
-    </div>
-    <div class="field">
-      <%= label_tag "Wood Type: "%>
-      <%= @character.wand.wood.name %>
-    </div>
-  <% else %>
-    <div class="field">
-      <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
-    </div>
-  <% end %>
-
+<div class="hero">
+  <div class="hero-body">
+    <h1 class="title is-size-1">
+    <%= @character.name%>
+    </h1>
+    <h1 class="subtitle"><%= link_to @house, house_path(@character.house) %></h1>
+    <div class="columns">
+    <div class="column">
+    <% if @familiar %>
+      <%= render 'characters/familiar' %>
+    <% elsif %>
+      <%= link_to  "Choose your familiar", new_character_familiar_path(@character) %>
+    <% end %>
+  </div>
+  <div class="column">
+    <% if @character.wand %>
+    <%= label_tag "Wand: "%>
+    <%= link_to "Edit", edit_character_wand_path(@character.wand) %>
+      <ul>
+        <li><%= label_tag "Core Material: "%> <%= @character.wand.core.material %></li>
+        <li><%= label_tag "Wood Type: "%> <%= @character.wand.wood.name %></li>
+    <% else %>
+        <%= link_to  "Choose your wand", new_character_wand_path(@character) %>
+    <% end %>
+  </div>
+   </div>
+  </div>
+</div>
   <div class="field">
     <span class="is-size-3">Spells:</span>
-    <div class="has-text-centered"><%= link_to  "Learn New Spells", spells_path, class: "button" %></div>
+    <div class="has-text-centered"><%= link_to  "Learn New Spells", spells_path, class: "button is-info" %></div>
   </div>
     <div class="columns is-multiline">
       <% if @character.spells %> 

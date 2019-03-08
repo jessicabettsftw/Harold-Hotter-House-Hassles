@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* Color helpers */
+
 :root {
   --midnight-blue: rgb(18, 25, 56);
   --dark-blue: rgb(57, 73, 94);
@@ -20,6 +23,8 @@
   --light-blue: rgb(148, 181, 193);
   --robins-egg: rgb(247, 255, 242);
 }
+
+/* Background color helpers */
 .bg-midnight-blue {
   background-color: var(--midnight-blue);
 }
@@ -40,10 +45,34 @@
   background-color: var(--robins-egg)
 }
 
+/* Text Color Helpers */
+.text-midnight-blue {
+  color: var(--midnight-blue);
+}
+
+.text-dark-blue {
+  color: var(--midnight-blue);
+}
+
+.text-medium-blue {
+  color: var(--medium-blue)
+}
+
+.text-light-blue {
+  color: var(--light-blue)
+}
+
+.text-robins-egg {
+  color: var(--robins-egg)
+}
+
+/* Navbar Styles */
+
 .navbar, .navbar a, .navbar a:link {
   background-color: var(--midnight-blue) !important;
   color: var(--robins-egg) !important;
 }
+
 .navbar a:hover {
   background-color: var(--dark-blue) !important
 }

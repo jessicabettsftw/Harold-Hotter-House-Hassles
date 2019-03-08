@@ -26,4 +26,15 @@ class House < ApplicationRecord
     end
     count
   end
+
+  def get_char_points
+    char_points = []
+    self.characters.each do |character |
+      points = character.calculate_points
+      name = character.name
+      char_points << {:name => name, :points => points}
+    end
+    char_points.sort_by { |character | character[:points] }.reverse
+  end
+  
 end

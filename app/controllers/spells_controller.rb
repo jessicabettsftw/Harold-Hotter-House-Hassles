@@ -3,6 +3,7 @@ class SpellsController < ApplicationController
 
   def index
     @spells = Spell.all
+    @is_learned = @character.spells.to_a
   end
 
   def show
@@ -28,8 +29,13 @@ class SpellsController < ApplicationController
     @spell = Spell.find(params[:id])
     @test_spell = Spell.find_by(category: params[:spell][:category], effect: params[:spell][:effect])
     if (@test_spell != nil) && (@test_spell.id == @spell.id)
-      flash[:type] = "success"
-      flash[:message] = "You now know #{@spell.name}"
+      if @spell.category != "Curse"
+        flash[:type] = "success"
+        flash[:message] = "You now know how to use #{@spell.name}"
+      elsif @spell.category == "Curse"
+        flash[:type] = "danger"
+        flash[:message] = "You now know how to use #{@spell.name}. How terrible of you. -30 Points to #{@character.house}!"
+      end
       learn_spell
     else
       flash[:type] = "warning"

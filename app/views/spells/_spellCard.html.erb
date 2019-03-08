@@ -6,7 +6,7 @@
         <p class="card-header-title">
           <%= spell.name %>
         </p>
-        <% if spell.learned?(@character) && !current_page?(character_path(@character)) %>
+        <% if spell.in? @is_learned %>
           <div class="card-header-icon">*</div>
         <% end %>
       </header>

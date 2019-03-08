@@ -7,6 +7,7 @@ class CharactersController < ApplicationController
   def show
     @house = @character.house.name
     @familiar = @character.familiar
+    @is_learned = [] #fixing _spellCard error
   end
 
   def new
