@@ -6,7 +6,7 @@
   <div class="field">
       <%= f.label :category, "Category", class: "label" %>
       <div class="select">
-        <%= f.collection_select :category, @categories, :category, :category, :selected => @categories.first.category.to_s%>    
+        <%= f.collection_select :category, @categories, :category, :category, :selected => @categories.first%>    
       </div>
   </div>
 

@@ -1,6 +1,6 @@
 <div class="column is-one-fifth">
   <a href="<%= character_spell_path(@character, spell) %>">
-    <div class="card" style="min-height: 175px">
+    <div class="card">
 
       <header class="card-header bg-light-blue">
         <p class="card-header-title">
@@ -10,11 +10,14 @@
           <div class="card-header-icon"><i class="fas fa-star has-text-warning"></i></div>
         <% end %>
       </header>
+
       <div class="card-content">
-        <div class="content">
+        <div class="content" style="min-height: 100px">
           <%= spell.effect %>
         </div>
       </div>
+      
+      <i style="padding-left: .7em"><sup><%= spell.category %></sup></i>
     </div>
   </a>
 </div>

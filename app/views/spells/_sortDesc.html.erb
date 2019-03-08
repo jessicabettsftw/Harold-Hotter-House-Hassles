@@ -1,0 +1,9 @@
+<% if @desc && !@sort %>
+  <a href="<%= spells_path %>" method="get" class="button is-link" type="submit">Desc</a>
+<% elsif !@desc && @sort %>
+  <a href="<%= spells_path(desc: "true", sort: "category") %>" method="get" class="button is-link is-outlined" type="submit">Desc</a>
+<% elsif @desc && @sort %>
+  <a href="<%= spells_path(sort: "category") %>" method="get" class="button is-link" type="submit">Desc</a>
+<% else %>
+  <a href="<%= spells_path(desc: "true") %>" method="get" class="button is-link is-outlined" type="submit">Desc</a>
+<% end %>

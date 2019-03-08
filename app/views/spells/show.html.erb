@@ -13,8 +13,5 @@
     <%= x.submit "Forget Spell", class: "button is-warning is-outlined" %>
   <% end %>
 <% else %>
-  <%# end %>
-  <%= form_for([@spell], {url: take_test_spell_path, method: :get}) do |x| %>
-    <%= x.submit "Test Spell Knowledge", class: "button is-primary" %>
-  <% end %>
+  <a href="<%= take_test_spell_path %>" class="button is-primary" type="submit">Test your knowledge</a>
 <% end %>

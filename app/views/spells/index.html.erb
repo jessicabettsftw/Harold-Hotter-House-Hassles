@@ -1,7 +1,15 @@
 <h1 class="title is-size-1">Choose A Spell To Study</h1>
+
 <% if @character.spells.any? %>
 <div class="subtitle"><sup><i class="fas fa-star has-text-warning"></i> You know this spell</sup> </div>
 <% end %>
+
+<div class="field">
+  <%= render 'spells/sortCategory' %>
+
+  <%= render 'spells/sortDesc' %>
+</div>
+
 <div class="columns is-multiline">
 <% @spells.each do |spell| %>
   <%= render 'spellCard', spell: spell %>
