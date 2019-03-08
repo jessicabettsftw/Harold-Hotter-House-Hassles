@@ -1,4 +1,3 @@
-
 <h1 class="title is-size-1">
   <%= @character.name%>
 </h1>
@@ -6,6 +5,8 @@
 <div class="subtitle is-size-4">
   <%= link_to @house, house_path(@character.house) %>
 </div>
+
+<div class="subtitle is-size-4"> <%= @character.calculate_points %> Points</div>
 
 <div class="columns">
   <div class="column">
